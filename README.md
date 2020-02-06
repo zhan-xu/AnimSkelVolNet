@@ -1,4 +1,3 @@
-
 This is the code repository implementing the paper "Predicting Animation Skeletons for 3D Articulated Models via Volumetric Nets".
 
 #### Dependecy and Setup
