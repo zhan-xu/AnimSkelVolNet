@@ -6,3 +6,4 @@ results/
 *.sbatch
 *.txt
 *.err
+*.cpython-36.pyc

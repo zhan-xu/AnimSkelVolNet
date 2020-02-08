@@ -28,7 +28,7 @@ and [Thea](https://github.com/sidch/Thea).
 We put the data after pre-processing [here](https://umass.box.com/s/o7dki17i431vd3xlvjz32aneq2t20o0o). 
 The folder includes several sub-folders:
 
-* obj: all meshes in obj format. We fixed them by [meshfix](https://github.com/MarcoAttene/MeshFix-V2.1)
+* obj: all meshes in obj format. We triangulated them by [MeshLab](http://www.meshlab.net/), and fixed them by [meshfix](https://github.com/MarcoAttene/MeshFix-V2.1).
 * skel: we save skeleton information in txt files. Each row contains information for a joint, 
 which are its level, joint name, joint position (x, y, z) and parent joint name.
 * curvature: curvature in voxel grids. Only surface voxels have value, otherwise 0. 
@@ -66,5 +66,5 @@ Remember to modify the result folder name and output folder name.
 ### Training
 To train a model by yourself, run the following command
 
-`python run_trainval.py --arch 'v2v_hg' --data_path 'YOUR_PATH/model-resource-volumetric.h5' --json_file 'YOUR_PATH/model-resource-volumetric.json' --checkpoint 'checkpoints/volNet' --logdir 'logs/volNet' --lr 1e-4 --train-batch 4 --test-batch 4 --input_feature curvature sd vertex_kde --num_stack 4 --epochs 50`
+`python run_trainval.py --arch 'v2v_hg' --data_path 'DATA_PATH/model-resource-volumetric.h5' --json_file 'DATA_PATH/model-resource-volumetric.json' --checkpoint 'checkpoints/volNet' --logdir 'logs/volNet' --lr 1e-4 --train-batch 4 --test-batch 4 --input_feature curvature sd vertex_kde --num_stack 4 --epochs 50`
 

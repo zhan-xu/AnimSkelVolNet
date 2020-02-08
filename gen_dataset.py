@@ -182,7 +182,8 @@ def get_surface_vertice(mesh, trans, scale, center_trans, dim_ori=82, r=3, dim_p
     res = np.zeros((dim_pad, dim_pad, dim_pad), dtype=np.uint8)
     vc = Cartesian2Voxcoord(points, np.array([trans]), scale, resolution=dim_ori)
     vc = vc - np.array([center_trans]) + r
-    res[vc[:, 0], vc[:, 1], vc[:, 2]] += 1
+    for v in vc:
+        res[v[0], v[1], v[2]] += 1
     return res, avg_edge
 
 
@@ -249,7 +250,7 @@ def genDataset_inner(root_folder, model_id, subset, dim_ori=82, r=3, dim_pad=88)
     changing_map_new = ndimage.binary_erosion(changing_map_new)
     fill_map = (changing_map_new != data_bin)
     coord_v = np.argwhere(fill_map)
-    coord_v_trans = coord_v + np.array([center_trans]) - 3
+    coord_v_trans = coord_v + np.array([center_trans]) - r
     curvature_surface[:, coord_v[:, 0], coord_v[:, 1], coord_v[:, 2]] = \
         curvature_raw[:, coord_v_trans[:, 0], coord_v_trans[:, 1], coord_v_trans[:, 2]]
     sd_surface[:, coord_v[:, 0], coord_v[:, 1], coord_v[:, 2]] = \

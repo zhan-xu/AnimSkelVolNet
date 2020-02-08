@@ -288,7 +288,18 @@ def primMST(graph, init_id):
 
 
 def primMST_symmetry(graph, init_id, joints):
+    '''
+    My revised prim algorithm to find a MST as symmetric as possible.
+    The function is sort of messy but...
+    The basic idea is if a bone on the left is picked, its counterpart on the right should also be picked
+    :param graph: cost matrix (N*N)
+    :param init_id: joint ID to be first picked
+    :param joints: joint position (N*3)
+    :return:
+    '''
     joint_mapping = {}
+    # this is trick. Since we already reflect the joints, "joints" have the order as left_joints->middle_joints->right_joints
+    # so we can find correspondence by simply following the original order after splitting three parts.
     left_joint_ids = np.argwhere(joints[:, 0] < -2e-2).squeeze(1).tolist()
     middle_joint_ids = np.argwhere(np.abs(joints[:, 0]) <= 2e-2).squeeze(1).tolist()
     right_joint_ids = np.argwhere(joints[:, 0] > 2e-2).squeeze(1).tolist()
@@ -335,7 +346,7 @@ def primMST_symmetry(graph, init_id, joints):
                     key[parent[u2]] = graph[parent[u2], parent[parent[u2]]]
 
         elif u in middle_joint_ids and parent[u] in left_joint_ids:
-            # form loop
+            # form loop in the tree, but we can do nothing
             u2 = None
         # right cases
         elif u in right_joint_ids and parent[u] in middle_joint_ids:
@@ -354,7 +365,7 @@ def primMST_symmetry(graph, init_id, joints):
                     mstSet[parent[u2]] = True
                     key[parent[u2]] = graph[parent[u2], parent[parent[u2]]]
         elif u in middle_joint_ids and parent[u] in right_joint_ids:
-            # form loop
+            # form loop in the tree, but we can do nothing
             u2 = None
         # middle case
         else:
@@ -418,7 +429,7 @@ def mst_generate(res_folder, best_thred, sigma, size, visualize=True, out_folder
     joint_pred_list = glob.glob(res_folder + 'joint_pred_*.npy')
     for i in range(len(joint_pred_list)):
         joint_pred_file = joint_pred_list[i]
-        #joint_pred_file = res_folder + 'joint_pred_8556.npy'
+        #joint_pred_file = res_folder + 'joint_pred_6178.npy'
         model_id = joint_pred_file.split('_')[-1][:-4]
         print(model_id)
         joint_pred = np.load(joint_pred_file)
