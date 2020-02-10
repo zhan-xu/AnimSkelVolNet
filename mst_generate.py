@@ -494,5 +494,5 @@ if __name__ == '__main__':
     best_thred = 0.02
     print(folder_name, best_thred)
     mst_generate('results/{0}'.format(folder_name),
-                 best_thred=best_thred, sigma=9, size=11, visualize=True, out_folder=out_folder,
+                 best_thred=best_thred, sigma=15, size=11, visualize=True, out_folder=out_folder,
                  mesh_folder=mesh_folder)
