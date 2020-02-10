@@ -429,7 +429,6 @@ def mst_generate(res_folder, best_thred, sigma, size, visualize=True, out_folder
     joint_pred_list = glob.glob(res_folder + 'joint_pred_*.npy')
     for i in range(len(joint_pred_list)):
         joint_pred_file = joint_pred_list[i]
-        #joint_pred_file = res_folder + 'joint_pred_6178.npy'
         model_id = joint_pred_file.split('_')[-1][:-4]
         print(model_id)
         joint_pred = np.load(joint_pred_file)
@@ -492,8 +491,8 @@ if __name__ == '__main__':
     out_folder = 'results/mst_{0}'.format(folder_name)
     if not os.path.isdir(out_folder):
         os.mkdir(out_folder)
-    best_thred = 0.014
+    best_thred = 0.02
     print(folder_name, best_thred)
     mst_generate('results/{0}'.format(folder_name),
-                 best_thred=best_thred, sigma=6.5, size=17, visualize=True, out_folder=out_folder,
+                 best_thred=best_thred, sigma=9, size=11, visualize=True, out_folder=out_folder,
                  mesh_folder=mesh_folder)
