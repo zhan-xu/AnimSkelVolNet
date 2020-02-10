@@ -52,7 +52,7 @@ Remember to change the root_folder to the directory you uncompress the pre-proce
 To run forward inference only, you can download a trained model from [here](https://umass.box.com/s/11l0yia01j8a1brr2qkhdibjjxl450t8). 
 Then you put it into REPO_PATH/checkpoints/volNet/, and run the following command:
 
-`python run_trainval.py -e --resume 'checkpoints/volNet/trained_model.pth.tar' --arch 'v2v_hg' --train-batch 4 --test-batch 4 --output_dir volNet --data_path 'DATA_PATH/model-resource-volumetric.h5' --json_file 'DATA_PATH/model-resource-volumetric.json' --input_feature curvature sd vertex_kde --num_stack 4`
+`python run_trainval.py -e --resume 'checkpoints/volNet/trained_model_volNet.pth.tar' --arch 'v2v_hg' --train-batch 4 --test-batch 4 --output_dir volNet --data_path 'DATA_PATH/model-resource-volumetric.h5' --json_file 'DATA_PATH/model-resource-volumetric.json' --input_feature curvature sd vertex_kde --num_stack 4`
 
 This will output the predicted joint&bone heatmaps, as well as the binary input voxels, 
 into a folder called 'results/OUTPUT_DIR'.
