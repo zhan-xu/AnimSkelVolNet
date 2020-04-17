@@ -180,10 +180,12 @@ def cal_avg_edge_length(mesh):
 def get_surface_vertice(mesh, trans, scale, center_trans, dim_ori=82, r=3, dim_pad=88):
     points, avg_edge = cal_avg_edge_length(mesh)
     res = np.zeros((dim_pad, dim_pad, dim_pad), dtype=np.uint8)
-    vc = Cartesian2Voxcoord(points, np.array([trans]), scale, resolution=dim_ori)
+    vc = (points - np.array([trans])) / scale * dim_ori
+    vc = np.round(vc).astype(int)
     vc = vc - np.array([center_trans]) + r
     for v in vc:
-        res[v[0], v[1], v[2]] += 1
+        if np.all((dim_pad - v) > 0) and np.all(v > 0):
+            res[v[0], v[1], v[2]] += 1
     return res, avg_edge
 
 
