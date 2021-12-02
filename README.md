@@ -17,7 +17,7 @@ pip install torch==1.2.0 torchvision==0.4.0 -f https://download.pytorch.org/whl/
 Our dataset ModelResource has 3,193 models. 
 We split it into 80% for training (2,554 models), 10%
 for validation (319 models), and 10% for testing. 
-All models in fbx format can be downloaded [here](https://umass.box.com/s/pgm8i7of0w1om4anzl9dxignepcaanym).
+All models in fbx format can be downloaded [here](https://umass-my.sharepoint.com/:u:/g/personal/zhanxu_umass_edu/EZEg3-xJwWpEqgUJELnjkGgBolJOJq0U2uBitV0O0iqLfQ?e=IYTZyt).
 
 To use this dataset in this project, we need some pre-processing, 
 including calculating curvature and shape diameter, 
@@ -25,7 +25,7 @@ converting models into SDF voxels, calculating feature size as control parameter
 Most of these works are done in C++. If you are interested 
 in that part, you can implement with the help of [trimesh](https://gfx.cs.princeton.edu/proj/trimesh2/) 
 and [Thea](https://github.com/sidch/Thea). 
-We put the data after pre-processing [here](https://umass.box.com/s/o7dki17i431vd3xlvjz32aneq2t20o0o). 
+We put the data after pre-processing [here](https://umass-my.sharepoint.com/:u:/g/personal/zhanxu_umass_edu/EYV5fbKw3B9IjbQLuymC2sQBaZxVNgoJEffdM49Ka3qNzA?e=dmEztH). 
 The folder includes several sub-folders:
 
 * obj: all meshes in obj format. We triangulated them by [MeshLab](http://www.meshlab.net/), and fixed them by [meshfix](https://github.com/MarcoAttene/MeshFix-V2.1).
