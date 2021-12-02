@@ -49,7 +49,7 @@ To create the data used directly by the code, see and run our script:
 Remember to change the root_folder to the directory you uncompress the pre-processed data.
 
 ### Inference
-To run forward inference only, you can download a trained model from [here](https://umass.box.com/s/11l0yia01j8a1brr2qkhdibjjxl450t8). 
+To run forward inference only, you can download a trained model from [here](https://umass-my.sharepoint.com/:u:/g/personal/zhanxu_umass_edu/EbJ_grM4c75Ct7lRxc5bFikBHVVgFVntSKcOJgkGHlOMdQ?e=QaHlBr). 
 Then you put it into REPO_PATH/checkpoints/volNet/, and run the following command:
 
 `python run_trainval.py -e --resume 'checkpoints/volNet/trained_model_volNet.pth.tar' --arch 'v2v_hg' --train-batch 4 --test-batch 4 --output_dir volNet --data_path 'DATA_PATH/model-resource-volumetric.h5' --json_file 'DATA_PATH/model-resource-volumetric.json' --input_feature curvature sd vertex_kde --num_stack 4`
