@@ -1,6 +1,6 @@
 This is the code repository implementing the paper "Predicting Animation Skeletons for 3D Articulated Models via Volumetric Nets".
 
-**[2023.02.17]** About dataset: Due to copyright concerns, we currently disable access to the ModelsResources dataset. If you are from a research lab and interested in the dataset, please send a request email to me at zhanxu@cs.umass.edu.
+**[2023.02.17]** About dataset: If you are from a research lab and interested in the dataset for research-only purposes, please send a request email to me at zhanxu@cs.umass.edu.
 
 ### Dependecy and Setup
 
