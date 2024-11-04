@@ -19,7 +19,7 @@ pip install torch==1.2.0 torchvision==0.4.0 -f https://download.pytorch.org/whl/
 Our dataset ModelResource has 3,193 models. 
 We split it into 80% for training (2,554 models), 10%
 for validation (319 models), and 10% for testing. 
-All models in fbx format can be downloaded [here](https://umass-my.sharepoint.com/:u:/g/personal/zhanxu_umass_edu/EZEg3-xJwWpEqgUJELnjkGgBolJOJq0U2uBitV0O0iqLfQ?e=IYTZyt).
+All models in fbx format can be downloaded [here](https://drive.google.com/file/d/1Zak7Ydfm6KuD9rwxdrfxV75rgtbxI2Hm/view?usp=sharing).
 
 To use this dataset in this project, we need some pre-processing, 
 including calculating curvature and shape diameter, 
@@ -27,7 +27,7 @@ converting models into SDF voxels, calculating feature size as control parameter
 Most of these works are done in C++. If you are interested 
 in that part, you can implement with the help of [trimesh](https://gfx.cs.princeton.edu/proj/trimesh2/) 
 and [Thea](https://github.com/sidch/Thea). 
-We put the data after pre-processing [here](https://umass-my.sharepoint.com/:u:/g/personal/zhanxu_umass_edu/EYV5fbKw3B9IjbQLuymC2sQBaZxVNgoJEffdM49Ka3qNzA?e=dmEztH). 
+We put the data after pre-processing [here](https://drive.google.com/file/d/1fcxTmRJAVEc0ZuiXM-NgqDdSmNLdOO1V/view?usp=sharing). 
 The folder includes several sub-folders:
 
 * obj: all meshes in obj format. We triangulated them by [MeshLab](http://www.meshlab.net/), and fixed them by [meshfix](https://github.com/MarcoAttene/MeshFix-V2.1).
@@ -51,7 +51,7 @@ To create the data used directly by the code, see and run our script:
 Remember to change the root_folder to the directory you uncompress the pre-processed data.
 
 ### Inference
-To run forward inference only, you can download a trained model from [here](https://umass-my.sharepoint.com/:u:/g/personal/zhanxu_umass_edu/EbJ_grM4c75Ct7lRxc5bFikBHVVgFVntSKcOJgkGHlOMdQ?e=QaHlBr). 
+To run forward inference only, you can download a trained model from [here](https://drive.google.com/file/d/1MJMiMVIpilKbMFI_vRqFBgd2ExzniR0U/view?usp=sharing). 
 Then you put it into REPO_PATH/checkpoints/volNet/, and run the following command:
 
 `python run_trainval.py -e --resume 'checkpoints/volNet/trained_model_volNet.pth.tar' --arch 'v2v_hg' --train-batch 4 --test-batch 4 --output_dir volNet --data_path 'DATA_PATH/model-resource-volumetric.h5' --json_file 'DATA_PATH/model-resource-volumetric.json' --input_feature curvature sd vertex_kde --num_stack 4`
