@@ -1,7 +1,5 @@
 This is the code repository implementing the paper "Predicting Animation Skeletons for 3D Articulated Models via Volumetric Nets".
 
-**[2023.02.17]** About dataset: If you are from a research lab and interested in the dataset for research-only purposes, please send a request email to me at zhanxu@cs.umass.edu.
-
 ### Dependecy and Setup
 
 The project is developed on Ubuntu 16.04 with cuda9.2 + cudnn7.5. 
